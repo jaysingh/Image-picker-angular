@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app>
+
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+		<script src="image_picker.js"></script>
+
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://bootswatch.com/cosmo/bootstrap.min.css"></link>
+	    <link rel="stylesheet" href="image_picker.css">
+	</head>
+
+	<body ng-controller="ImagePickerCtrl">
+		<div class="row-fluid">
+			<div class="span8 offset2">
+				<div class="row-fluid">
+					<div class="alert alert-info">
+						Selected Image: &nbsp;{{selected_image || 'NONE'}}
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div ng-repeat="image in all_images">
+						<div class="span4" ng-click="selectImage(image)" ng-class="{'selected-image': (selected_image === image)}">
+							<div>
+								{{image}}
+							</div>
+							<img ng-src="./images/{{image}}.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</body>
+
+</html>
